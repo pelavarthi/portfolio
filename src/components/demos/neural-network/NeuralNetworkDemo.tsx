@@ -225,7 +225,7 @@ export default function NeuralNetworkDemo() {
               : loading
                 ? "Loading Python..."
                 : !pyodideLoaded
-                  ? "Loading Pyodide..."
+                  ? "Loading..."
                   : "Train Network"}
           </button>
         </div>

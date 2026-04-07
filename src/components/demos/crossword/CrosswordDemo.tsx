@@ -315,9 +315,9 @@ export default function CrosswordDemo() {
         <div className="rounded-lg border border-zinc-200 bg-zinc-50 p-4 dark:border-zinc-800 dark:bg-zinc-900">
           <p className="text-sm text-zinc-600 dark:text-zinc-400">
             This runs the actual Python crossword generator in your browser via
-            Pyodide (Python compiled to WebAssembly). The algorithm uses
-            backtracking with constraint satisfaction, regex pattern matching,
-            and flood-fill to generate valid symmetric crossword grids.
+            The algorithm uses backtracking with constraint satisfaction,
+            regex pattern matching, and flood-fill to generate valid symmetric
+            crossword grids.
           </p>
         </div>
 
@@ -347,7 +347,7 @@ export default function CrosswordDemo() {
               : loading
                 ? "Loading Python..."
                 : !pyodideLoaded
-                  ? "Loading Pyodide..."
+                  ? "Loading..."
                   : "Generate Crossword"}
           </button>
         </div>

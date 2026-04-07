@@ -12,7 +12,7 @@ export default function OthelloPage() {
   return (
     <DemoLayout
       title="Othello AI"
-      description="Play against an AI that uses alpha-beta pruning to search the game tree. The AI logic is the actual Python code running in your browser via Pyodide."
+      description="Play against an AI that uses alpha-beta pruning to search the game tree. The AI logic is the actual Python code running directly in your browser."
     >
       <OthelloDemo />
     </DemoLayout>

@@ -372,7 +372,7 @@ print(json.dumps(coords))
         <div className="rounded-lg border border-zinc-200 bg-zinc-50 p-4 dark:border-zinc-800 dark:bg-zinc-900">
           <p className="text-sm text-zinc-600 dark:text-zinc-400">
             The AI opponent uses Pranav&apos;s actual Python alpha-beta pruning
-            code, running in your browser via Pyodide. You play as Black
+            code running directly in your browser. You play as Black
             (first move). The AI thinks several moves ahead using minimax with
             alpha-beta pruning.
           </p>

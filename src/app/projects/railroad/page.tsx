@@ -12,7 +12,7 @@ export default function RailroadPage() {
   return (
     <DemoLayout
       title="Railroad Pathfinding"
-      description="Visualize pathfinding algorithms on a real US railroad network. The Python algorithms run in your browser via Pyodide, drawing exploration and final paths on the canvas."
+      description="Visualize pathfinding algorithms on a real US railroad network. The Python algorithms run directly in your browser, drawing exploration and final paths on the canvas."
     >
       <RailroadDemo />
     </DemoLayout>

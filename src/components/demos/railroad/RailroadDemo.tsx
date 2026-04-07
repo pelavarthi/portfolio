@@ -462,7 +462,7 @@ js.canvasFlush()
           <p className="text-sm text-zinc-600 dark:text-zinc-400">
             This visualizes pathfinding on a real US railroad network with{" "}
             {cities.length || "..."} cities. The Python search algorithms
-            (BFS, A*, bidirectional variants) run in your browser via Pyodide,
+            (BFS, A*, bidirectional variants) run directly in your browser,
             drawing explored edges in real-time. The final shortest path is
             drawn in red.
           </p>
