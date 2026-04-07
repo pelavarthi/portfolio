@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { Project } from "@/data/projects";
 
 export default function ProjectCard({ project }: { project: Project }) {
@@ -18,6 +19,14 @@ export default function ProjectCard({ project }: { project: Project }) {
         ))}
       </div>
       <div className="mt-4 flex gap-3">
+        {project.demoUrl && (
+          <Link
+            href={project.demoUrl}
+            className="rounded-full bg-blue-600 px-4 py-1.5 text-sm font-medium text-white transition-colors hover:bg-blue-700"
+          >
+            Try Demo
+          </Link>
+        )}
         {project.githubUrl && (
           <a
             href={project.githubUrl}

@@ -4,6 +4,7 @@ export interface Project {
   tags: string[];
   githubUrl?: string;
   liveUrl?: string;
+  demoUrl?: string;
 }
 
 export const projects: Project[] = [
@@ -14,6 +15,7 @@ export const projects: Project[] = [
     tags: ["Python", "Neural Networks", "Backpropagation"],
     githubUrl:
       "https://github.com/pelavarthi/Artificial-Intelligence/blob/main/Unit%206/Unit6Lab3.py",
+    demoUrl: "/projects/neural-network",
   },
   {
     title: "Othello AI",
@@ -22,6 +24,7 @@ export const projects: Project[] = [
     tags: ["Python", "Minimax", "Alpha-Beta Pruning", "Game AI"],
     githubUrl:
       "https://github.com/pelavarthi/Artificial-Intelligence/tree/main/Unit%203",
+    demoUrl: "/projects/othello",
   },
   {
     title: "Railroad Pathfinding",
@@ -30,6 +33,7 @@ export const projects: Project[] = [
     tags: ["Python", "A*", "Graph Algorithms", "Haversine"],
     githubUrl:
       "https://github.com/pelavarthi/Artificial-Intelligence/blob/main/Unit%201/Elavarthi_Pranav_U1_Lab7_Railroad_shell.py",
+    demoUrl: "/projects/railroad",
   },
   {
     title: "Crossword Generator",
@@ -38,6 +42,7 @@ export const projects: Project[] = [
     tags: ["Python", "Backtracking", "Constraint Satisfaction"],
     githubUrl:
       "https://github.com/pelavarthi/Artificial-Intelligence/blob/main/Unit%205/crossword.py",
+    demoUrl: "/projects/crossword",
   },
   {
     title: "AR Drone Control",
