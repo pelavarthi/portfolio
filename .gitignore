@@ -36,6 +36,9 @@ yarn-error.log*
 # vercel
 .vercel
 
+# resume pdf
+public/*.pdf
+
 # typescript
 *.tsbuildinfo
 next-env.d.ts
