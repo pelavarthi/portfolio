@@ -10,7 +10,7 @@ export default function Projects() {
       <p className="mt-2 text-zinc-600 dark:text-zinc-400">
         A few things I&apos;ve built.
       </p>
-      <div className="mt-10 grid gap-6 sm:grid-cols-2">
+      <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
         {projects.map((project) => (
           <ProjectCard key={project.title} project={project} />
         ))}
