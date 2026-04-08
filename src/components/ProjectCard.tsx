@@ -42,9 +42,9 @@ export default function ProjectCard({ project }: { project: Project }) {
             href={project.liveUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="text-sm font-medium text-blue-600 underline-offset-4 hover:underline dark:text-blue-400"
+            className="rounded-full bg-blue-600 px-4 py-1.5 text-sm font-medium text-white transition-colors hover:bg-blue-700"
           >
-            Live Demo
+            {project.liveUrlLabel || "Live Demo"}
           </a>
         )}
       </div>

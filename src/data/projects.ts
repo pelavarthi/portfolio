@@ -4,6 +4,7 @@ export interface Project {
   tags: string[];
   githubUrl?: string;
   liveUrl?: string;
+  liveUrlLabel?: string;
   demoUrl?: string;
 }
 
@@ -56,5 +57,6 @@ export const projects: Project[] = [
       "Analysis of ML models' ability to predict COVID severity from CT scans. Co-authored paper published in the journal Diagnostics.",
     tags: ["Machine Learning", "Research", "Medical Imaging"],
     liveUrl: "https://pubmed.ncbi.nlm.nih.gov/34829372/",
+    liveUrlLabel: "Learn More",
   },
 ];
