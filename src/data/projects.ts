@@ -10,6 +10,14 @@ export interface Project {
 
 export const projects: Project[] = [
   {
+    title: "CIO Clearinghouse",
+    description:
+      "Full-stack club discovery platform for UVA student organizations with authenticated profiles, searchable club listings, membership tracking, favorites, direct messaging, and role-based admin approval workflows.",
+    tags: ["Django", "Python", "Auth", "Messaging", "Role-Based Access"],
+    liveUrl: "https://cio-app-289ecdfa228c.herokuapp.com/home/dashboard/",
+    liveUrlLabel: "View Site",
+  },
+  {
     title: "Neural Network from Scratch",
     description:
       "Multi-layer neural network built without libraries, implementing forward propagation, backpropagation, and gradient descent to classify 2D points. Trained on 30k samples.",
