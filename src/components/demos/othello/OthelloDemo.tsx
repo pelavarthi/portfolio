@@ -369,25 +369,16 @@ print(json.dumps(coords))
         onLoad={() => setPyodideLoaded(true)}
       />
       <div className="space-y-6">
-        <div className="rounded-lg border border-zinc-200 bg-zinc-50 p-4 dark:border-zinc-800 dark:bg-zinc-900">
-          <p className="text-sm text-zinc-600 dark:text-zinc-400">
-            The AI opponent uses Pranav&apos;s actual Python alpha-beta pruning
-            code running directly in your browser. You play as Black
-            (first move). The AI thinks several moves ahead using minimax with
-            alpha-beta pruning.
-          </p>
-        </div>
-
         <div className="flex flex-wrap items-end gap-4">
           <div>
-            <label className="mb-1 block text-sm font-medium">Mode</label>
+            <label className="mb-1 block text-sm font-medium text-stone-900">Mode</label>
             <select
               value={mode}
               onChange={(e) => {
                 setMode(e.target.value as "pvai" | "aivai");
                 reset();
               }}
-              className="rounded-lg border border-zinc-300 bg-white px-3 py-2 text-sm dark:border-zinc-700 dark:bg-zinc-800"
+              className="rounded-lg border border-stone-300 bg-white px-3 py-2 text-sm text-stone-900"
               disabled={thinking}
             >
               <option value="pvai">Player vs AI</option>
@@ -396,7 +387,7 @@ print(json.dumps(coords))
           </div>
           <button
             onClick={reset}
-            className="rounded-lg border border-zinc-300 px-4 py-2 text-sm font-medium transition-colors hover:bg-zinc-100 dark:border-zinc-700 dark:hover:bg-zinc-800"
+            className="rounded-lg border border-stone-300 bg-white px-4 py-2 text-sm font-medium text-stone-900 transition-colors hover:bg-stone-100"
           >
             New Game
           </button>
@@ -409,30 +400,30 @@ print(json.dumps(coords))
               width={CANVAS_SIZE}
               height={CANVAS_SIZE}
               onClick={handleClick}
-              className="cursor-pointer rounded-lg"
+              className="cursor-pointer rounded-lg bg-stone-100"
               style={{ maxWidth: "100%", height: "auto" }}
             />
           </div>
-          <div className="space-y-3 text-sm">
+          <div className="space-y-3 text-sm text-stone-900">
             <div className="flex items-center gap-3">
-              <div className="h-5 w-5 rounded-full bg-zinc-900 dark:bg-zinc-100" />
+              <div className="h-5 w-5 rounded-full bg-stone-900" />
               <span>
                 Black: {score.black}
                 {turn === "@" && !gameOver && (mode === "pvai" ? " (your turn)" : " (thinking...)")}
               </span>
             </div>
             <div className="flex items-center gap-3">
-              <div className="h-5 w-5 rounded-full border border-zinc-300 bg-white" />
+              <div className="h-5 w-5 rounded-full border border-stone-300 bg-white" />
               <span>
                 White: {score.white}
                 {turn === "O" && !gameOver && " (AI thinking...)"}
               </span>
             </div>
             {thinking && (
-              <p className="text-zinc-500">AI is computing move...</p>
+              <p className="text-stone-500">AI is computing move...</p>
             )}
             {!aiReady && (
-              <p className="text-zinc-500">Loading AI engine...</p>
+              <p className="text-stone-500">Loading AI engine...</p>
             )}
             {gameOver && (
               <p className="font-semibold">

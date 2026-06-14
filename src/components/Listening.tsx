@@ -11,17 +11,45 @@ export default function Listening() {
         A glimpse into my current favorites and daily rotations.
       </p>
 
-      <div className="mt-12 w-full max-w-2xl overflow-hidden rounded-2xl shadow-xl ring-1 ring-stone-100">
-        <iframe
-          style={{ borderRadius: "0px" }}
-          src="https://open.spotify.com/embed/playlist/6JVFYOCPtvCQBpUbBMIx3e?utm_source=generator&theme=0&si=d45159d9421e4845"
-          width="100%"
-          height="352"
-          frameBorder="0"
-          allowFullScreen={true}
-          allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
-          loading="lazy"
-        ></iframe>
+      <div className="mt-12 flex w-full max-w-2xl flex-col gap-8">
+        <div className="overflow-hidden rounded-2xl shadow-xl ring-1 ring-stone-100">
+          <iframe
+            style={{ borderRadius: "0px" }}
+            src="https://open.spotify.com/embed/playlist/37i9dQZF1EpfPHA9lR01BU?utm_source=generator&theme=0&si=41acc1982b52433a"
+            width="100%"
+            height="352"
+            frameBorder="0"
+            allowFullScreen={true}
+            allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+            loading="lazy"
+          ></iframe>
+        </div>
+
+        <div className="overflow-hidden rounded-2xl shadow-xl ring-1 ring-stone-100">
+          <iframe
+            style={{ borderRadius: "0px" }}
+            src="https://open.spotify.com/embed/playlist/6JVFYOCPtvCQBpUbBMIx3e?utm_source=generator&theme=0&si=d45159d9421e4845"
+            width="100%"
+            height="352"
+            frameBorder="0"
+            allowFullScreen={true}
+            allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+            loading="lazy"
+          ></iframe>
+        </div>
+
+        <div className="overflow-hidden rounded-2xl shadow-xl ring-1 ring-stone-100">
+          <iframe
+            style={{ borderRadius: "0px" }}
+            src="https://open.spotify.com/embed/playlist/7fYDQAYKcwFh9628U0Ccl2?utm_source=generator&theme=0&si=d6cdcc1e424a4ceb"
+            width="100%"
+            height="352"
+            frameBorder="0"
+            allowFullScreen={true}
+            allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+            loading="lazy"
+          ></iframe>
+        </div>
       </div>
     </section>
   );

@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
-import DemoLayout from "@/components/demos/DemoLayout";
-import OthelloDemo from "@/components/demos/othello/OthelloDemo";
+import OthelloPageContent from "./OthelloPageContent";
 
 export const metadata: Metadata = {
   title: "Othello AI — Pranav Elavarthi",
@@ -9,12 +8,5 @@ export const metadata: Metadata = {
 };
 
 export default function OthelloPage() {
-  return (
-    <DemoLayout
-      title="Othello AI"
-      description="Play against an AI that uses alpha-beta pruning to search the game tree. The AI logic is the actual Python code running directly in your browser."
-    >
-      <OthelloDemo />
-    </DemoLayout>
-  );
+  return <OthelloPageContent />;
 }

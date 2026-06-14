@@ -1,19 +1,28 @@
-import Link from "next/link";
+"use client";
 
 export default function DemoLayout({
   title,
   description,
   children,
+  backHref = "/",
+  onBack,
 }: {
   title: string;
   description: string;
   children: React.ReactNode;
+  backHref?: string;
+  onBack?: () => void;
 }) {
+  const handleBack = () => {
+    if (onBack) onBack();
+    window.location.href = backHref;
+  };
+
   return (
     <div className="min-h-screen bg-white text-stone-900">
       <div className="mx-auto max-w-6xl px-6 py-8">
-        <Link
-          href="/#projects"
+        <button
+          onClick={handleBack}
           className="inline-flex items-center gap-1 text-sm text-stone-500 transition-colors hover:text-stone-900"
         >
           <svg
@@ -31,7 +40,7 @@ export default function DemoLayout({
             />
           </svg>
           Back to portfolio
-        </Link>
+        </button>
         <h1 className="mt-6 text-3xl font-bold tracking-tight sm:text-4xl">
           {title}
         </h1>

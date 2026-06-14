@@ -17,7 +17,7 @@ const skills = [
   { name: "React", icon: "react/react-original.svg" },
 ];
 
-export default function About() {
+export default function About({ onNavigate }: { onNavigate: (id: string) => void }) {
   return (
     <section className="mx-auto max-w-5xl px-6 pb-16 pt-32">
       {/* Intro Header */}
@@ -27,10 +27,31 @@ export default function About() {
         </h2>
         <div className="mt-8 max-w-3xl space-y-6 text-2xl leading-snug text-stone-600 sm:text-3xl">
           <p>
-            My name is <span className="text-stone-900 font-semibold">Pranav Elavarthi</span>, from Northern Virginia. 
-            Interested in helping engineer the future of software applications.
+            My name is <span className="text-stone-900 font-semibold">Pranav Elavarthi</span>, and I&apos;m from Northern Virginia. 
           </p>
           <div className="h-px w-24 bg-blue-600"></div>
+        </div>
+      </div>
+
+      {/* Brief History Section */}
+      <div className="mb-24">
+        <h3 className="mb-8 text-sm font-bold uppercase tracking-[0.3em] text-stone-400">
+          Brief History
+        </h3>
+        <div className="grid gap-12 text-lg leading-relaxed text-stone-600 lg:grid-cols-2">
+          <div className="space-y-6">
+            <p>
+              I grew up in Northern Virginia and graduated from Thomas Jefferson High School for Science and Technology. Being around people who were constantly building things, competing, and exploring new ideas got me interested in tech pretty early on. Now I&apos;m studying Computer Science at the University of Virginia in the school of Engineering and Applied Science. I&apos;m still figuring out exactly where I want to end up, but I&apos;m enjoying the process of building and learning along the way.
+            </p>
+          </div>
+          <div className="space-y-6">
+            <p>
+              Outside of school, I love playing basketball (huge Wizards fan!) and pickleball. I&apos;m also always down for a good poker game. In my free time, you can usually find me binging a new show, watching movies, listening to music, or exploring a new playlist. Definitely check out some of my favorite <a href="#movies" onClick={(e) => { e.preventDefault(); onNavigate('movies'); }} className="text-blue-600 hover:underline">watches</a> and <a href="#listening" onClick={(e) => { e.preventDefault(); onNavigate('listening'); }} className="text-blue-600 hover:underline">listens</a>.
+            </p>
+            <p>
+              Feel free to take a look around, check out some of my <a href="#projects" onClick={(e) => { e.preventDefault(); onNavigate('projects'); }} className="text-blue-600 hover:underline">projects</a>, and reach out if you&apos;d like to connect.
+            </p>
+          </div>
         </div>
       </div>
 
@@ -60,36 +81,37 @@ export default function About() {
         </div>
       </div>
 
-      {/* Brief History Section */}
+      {/* Contact Section */}
       <div className="mb-16">
-        <h3 className="mb-8 text-sm font-bold uppercase tracking-[0.3em] text-stone-400">
-          Brief History
+        <h3 className="mb-12 text-sm font-bold uppercase tracking-[0.3em] text-stone-400">
+          Connect
         </h3>
-        <div className="grid gap-12 text-lg leading-relaxed text-stone-600 lg:grid-cols-2">
-          <div className="space-y-6">
-            <p>
-              I&apos;m currently a Computer Science major at the University of Virginia&apos;s Engineering School, 
-              paired with an Applied Math minor. I like building things and solving hard problems — 
-              that&apos;s kind of why I&apos;m here.
-            </p>
-            <p>
-              Grew up in Northern Virginia, which set the stage for my interest in technology. 
-              Outside of school, I&apos;m into music, movies, and basketball. Always have been, 
-              probably always will be.
-            </p>
-          </div>
-          <div className="space-y-6">
-            <p>
-              Still figuring out where it all goes, but that&apos;s what makes it interesting. 
-              I value efficiency and clarity—whether it&apos;s in code or a complex project, 
-              the best solutions are usually the ones that are easy to understand.
-            </p>
-            <div className="flex flex-wrap gap-4 pt-4">
-              <span className="rounded-full bg-stone-100 px-6 py-2 text-sm font-semibold text-stone-900 ring-1 ring-stone-200">🏀 Basketball</span>
-              <span className="rounded-full bg-stone-100 px-6 py-2 text-sm font-semibold text-stone-900 ring-1 ring-stone-200">🎬 Movies</span>
-              <span className="rounded-full bg-stone-100 px-6 py-2 text-sm font-semibold text-stone-900 ring-1 ring-stone-200">🎵 Music</span>
-            </div>
-          </div>
+        <div className="grid grid-cols-1 gap-4 sm:grid-cols-3">
+          <a
+            href="https://github.com/pelavarthi"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center justify-center gap-3 rounded-xl border border-stone-200 bg-stone-50 px-6 py-6 font-semibold text-stone-900 transition-all hover:bg-stone-100 hover:shadow-sm"
+          >
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" alt="GitHub" className="h-6 w-6" />
+            GitHub
+          </a>
+          <a
+            href="https://www.linkedin.com/in/pelavarthi/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center justify-center gap-3 rounded-xl border border-stone-200 bg-stone-50 px-6 py-6 font-semibold text-stone-900 transition-all hover:bg-stone-100 hover:shadow-sm"
+          >
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linkedin/linkedin-original.svg" alt="LinkedIn" className="h-6 w-6" />
+            LinkedIn
+          </a>
+          <a
+            href="mailto:rzg8qh@virginia.edu"
+            className="flex items-center justify-center gap-3 rounded-xl border border-stone-200 bg-stone-50 px-6 py-6 font-semibold text-stone-900 transition-all hover:bg-stone-100 hover:shadow-sm"
+          >
+            <span className="text-xl">✉️</span>
+            Email
+          </a>
         </div>
       </div>
     </section>

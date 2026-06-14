@@ -15,6 +15,9 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "Pranav Elavarthi — Portfolio",
   description: "Personal portfolio of Pranav Elavarthi",
+  icons: {
+    icon: "/favicon.svg",
+  },
 };
 
 export default function RootLayout({

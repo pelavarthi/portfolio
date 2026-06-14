@@ -1,17 +1,19 @@
 "use client";
 
-import { useCallback, useEffect, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
 import About from "@/components/About";
 import Projects from "@/components/Projects";
 import Listening from "@/components/Listening";
+import Movies from "@/components/Movies";
 
 export const SLIDES = [
   { id: "home", label: "Home", theme: "paper" as const },
   { id: "about", label: "About", theme: "light" as const },
   { id: "projects", label: "Projects", theme: "light" as const },
   { id: "listening", label: "Listening", theme: "light" as const },
+  { id: "movies", label: "Movies", theme: "light" as const },
 ] as const;
 
 function slideIndexFromHash(): number {
@@ -22,10 +24,30 @@ function slideIndexFromHash(): number {
 }
 
 export default function PortfolioSlideshow() {
-  const [activeIndex, setActiveIndex] = useState(slideIndexFromHash);
+  const [mounted, setMounted] = useState(false);
+  const [activeIndex, setActiveIndex] = useState(0);
+  const [skipAnimation, setSkipAnimation] = useState(false);
+  const touchStartX = useRef<number | null>(null);
+
+  useEffect(() => {
+    // eslint-disable-next-line react-hooks/set-state-in-effect
+    setMounted(true);
+    // eslint-disable-next-line react-hooks/set-state-in-effect
+    setActiveIndex(slideIndexFromHash());
+
+    // Check for animation skip intent
+    if (sessionStorage.getItem("disable-animation") === "true") {
+      setSkipAnimation(true);
+      sessionStorage.removeItem("disable-animation");
+    }
+  }, []);
+
   const isPaperTheme = SLIDES[activeIndex].theme === "paper";
 
   const goToSlide = useCallback((index: number) => {
+    // When manually navigating, re-enable animation
+    setSkipAnimation(false);
+    
     const next = Math.max(0, Math.min(SLIDES.length - 1, index));
     setActiveIndex(next);
     window.history.replaceState(null, "", `#${SLIDES[next].id}`);
@@ -39,13 +61,32 @@ export default function PortfolioSlideshow() {
     goToSlide(activeIndex - 1);
   }, [activeIndex, goToSlide]);
 
+  // Touch event handlers for swipe
+  const handleTouchStart = (e: React.TouchEvent) => {
+    touchStartX.current = e.touches[0].clientX;
+  };
+
+  const handleTouchEnd = (e: React.TouchEvent) => {
+    if (touchStartX.current === null) return;
+    const touchEndX = e.changedTouches[0].clientX;
+    const diff = touchStartX.current - touchEndX;
+
+    if (Math.abs(diff) > 50) { // Threshold for swipe
+      if (diff > 0) goNext();
+      else goPrev();
+    }
+    touchStartX.current = null;
+  };
+
   useEffect(() => {
+    if (!mounted) return;
     const onHashChange = () => setActiveIndex(slideIndexFromHash());
     window.addEventListener("hashchange", onHashChange);
     return () => window.removeEventListener("hashchange", onHashChange);
-  }, []);
+  }, [mounted]);
 
   useEffect(() => {
+    if (!mounted) return;
     const onKeyDown = (event: KeyboardEvent) => {
       const target = event.target as HTMLElement;
       if (
@@ -67,7 +108,7 @@ export default function PortfolioSlideshow() {
 
     window.addEventListener("keydown", onKeyDown);
     return () => window.removeEventListener("keydown", onKeyDown);
-  }, [goNext, goPrev]);
+  }, [goNext, goPrev, mounted]);
 
   const navButtonClass = isPaperTheme
     ? "border-stone-300 bg-paper/80 text-stone-600 hover:border-stone-400 hover:text-stone-900"
@@ -80,6 +121,8 @@ export default function PortfolioSlideshow() {
       className={`relative h-screen overflow-hidden ${
         isPaperTheme ? "bg-paper text-stone-900" : "bg-white text-stone-900"
       }`}
+      onTouchStart={handleTouchStart}
+      onTouchEnd={handleTouchEnd}
     >
       <Navbar
         slides={SLIDES}
@@ -89,7 +132,9 @@ export default function PortfolioSlideshow() {
       />
 
       <div
-        className="flex h-full transition-transform duration-700 ease-in-out motion-reduce:transition-none"
+        className={`flex h-full transition-transform ease-in-out motion-reduce:transition-none ${
+          skipAnimation ? "duration-0" : "duration-700"
+        }`}
         style={{ transform: `translateX(-${activeIndex * 100}%)` }}
       >
         {SLIDES.map((slide, index) => (
@@ -102,9 +147,17 @@ export default function PortfolioSlideshow() {
             aria-hidden={index !== activeIndex}
           >
             {slide.id === "home" && <Hero />}
-            {slide.id === "about" && <About />}
+            {slide.id === "about" && (
+              <About
+                onNavigate={(id) => {
+                  const index = SLIDES.findIndex((s) => s.id === id);
+                  goToSlide(index);
+                }}
+              />
+            )}
             {slide.id === "projects" && <Projects />}
             {slide.id === "listening" && <Listening />}
+            {slide.id === "movies" && <Movies />}
           </div>
         ))}
       </div>
@@ -157,10 +210,18 @@ export default function PortfolioSlideshow() {
         </button>
       )}
 
+      {/* Desktop Navigation Hint */}
       <div
         className={`pointer-events-none fixed bottom-6 left-1/2 z-40 hidden -translate-x-1/2 text-xs tracking-widest sm:block ${hintClass}`}
       >
         ← → to navigate
+      </div>
+      
+      {/* Mobile Navigation Hint */}
+      <div
+        className={`pointer-events-none fixed bottom-6 left-1/2 z-40 -translate-x-1/2 text-xs tracking-widest sm:hidden ${hintClass}`}
+      >
+        Swipe to navigate
       </div>
     </div>
   );
