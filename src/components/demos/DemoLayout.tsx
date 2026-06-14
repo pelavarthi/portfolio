@@ -10,11 +10,11 @@ export default function DemoLayout({
   children: React.ReactNode;
 }) {
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-white text-stone-900">
       <div className="mx-auto max-w-6xl px-6 py-8">
         <Link
           href="/#projects"
-          className="inline-flex items-center gap-1 text-sm text-zinc-500 transition-colors hover:text-zinc-900 dark:hover:text-zinc-100"
+          className="inline-flex items-center gap-1 text-sm text-stone-500 transition-colors hover:text-stone-900"
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -35,7 +35,7 @@ export default function DemoLayout({
         <h1 className="mt-6 text-3xl font-bold tracking-tight sm:text-4xl">
           {title}
         </h1>
-        <p className="mt-2 text-zinc-600 dark:text-zinc-400">{description}</p>
+        <p className="mt-2 text-stone-600">{description}</p>
         <div className="mt-8">{children}</div>
       </div>
     </div>

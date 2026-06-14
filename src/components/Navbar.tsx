@@ -2,45 +2,83 @@
 
 import { useState } from "react";
 
-const links = [
-  { href: "#about", label: "About" },
-  { href: "#experience", label: "Experience" },
-  { href: "#projects", label: "Projects" },
-  { href: "#skills", label: "Skills" },
-];
+type Slide = {
+  id: string;
+  label: string;
+};
 
-export default function Navbar() {
+type NavbarProps = {
+  slides: readonly Slide[];
+  activeIndex: number;
+  onNavigate: (index: number) => void;
+  theme: "paper" | "light";
+};
+
+export default function Navbar({
+  slides,
+  activeIndex,
+  onNavigate,
+  theme,
+}: NavbarProps) {
   const [open, setOpen] = useState(false);
+  const isPaper = theme === "paper";
+
+  const navClass = isPaper
+    ? "border-stone-200/80 bg-paper/80"
+    : "border-stone-200/80 bg-white/80";
+
+  const logoClass = "text-stone-900 transition-opacity hover:opacity-70";
+
+  const tabActiveClass = "text-stone-900";
+  const tabInactiveClass = "text-stone-500 hover:text-stone-700";
+  const tabIndicatorClass = "bg-stone-900";
+
+  const mobileMenuClass = isPaper
+    ? "border-stone-200 bg-paper"
+    : "border-stone-200 bg-white";
+
+  const mobileActiveClass = isPaper
+    ? "bg-stone-100 text-stone-900"
+    : "bg-stone-100 text-stone-900";
+
+  const mobileInactiveClass = "text-stone-600 hover:bg-stone-50 hover:text-stone-900";
 
   return (
-    <nav className="fixed top-0 z-50 w-full border-b border-zinc-200 bg-white/80 backdrop-blur-sm dark:border-zinc-800 dark:bg-zinc-950/80">
-      <div className="mx-auto flex max-w-5xl items-center justify-between px-6 py-4">
-        <a href="#" className="text-lg font-semibold tracking-tight">
+    <nav
+      className={`fixed top-0 z-50 w-full border-b backdrop-blur-md ${navClass}`}
+    >
+      <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
+        <button
+          type="button"
+          onClick={() => onNavigate(0)}
+          className={`text-lg font-semibold tracking-tight ${logoClass}`}
+        >
           PE
-        </a>
+        </button>
 
-        {/* Desktop */}
-        <div className="hidden items-center gap-6 text-sm sm:flex">
-          {links.map((l) => (
-            <a
-              key={l.href}
-              href={l.href}
-              className="text-zinc-600 transition-colors hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-100"
+        <div className="hidden items-center gap-1 sm:flex">
+          {slides.map((slide, index) => (
+            <button
+              key={slide.id}
+              type="button"
+              onClick={() => onNavigate(index)}
+              className={`relative px-4 py-2 text-sm transition-colors ${
+                index === activeIndex ? tabActiveClass : tabInactiveClass
+              }`}
             >
-              {l.label}
-            </a>
+              {slide.label}
+              {index === activeIndex && (
+                <span
+                  className={`absolute inset-x-4 -bottom-[17px] h-px ${tabIndicatorClass}`}
+                />
+              )}
+            </button>
           ))}
-          <a
-            href="mailto:rzg8qh@virginia.edu"
-            className="rounded-full border border-zinc-300 px-4 py-1.5 text-zinc-700 transition-colors hover:bg-zinc-100 dark:border-zinc-700 dark:text-zinc-300 dark:hover:bg-zinc-800"
-          >
-            Contact
-          </a>
         </div>
 
-        {/* Mobile toggle */}
         <button
-          className="sm:hidden text-zinc-600 dark:text-zinc-400"
+          type="button"
+          className="text-stone-600 sm:hidden"
           onClick={() => setOpen(!open)}
           aria-label="Toggle menu"
         >
@@ -53,34 +91,42 @@ export default function Navbar() {
             className="h-6 w-6"
           >
             {open ? (
-              <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                d="M6 18 18 6M6 6l12 12"
+              />
             ) : (
-              <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 9h16.5m-16.5 6.75h16.5" />
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                d="M3.75 9h16.5m-16.5 6.75h16.5"
+              />
             )}
           </svg>
         </button>
       </div>
 
-      {/* Mobile menu */}
       {open && (
-        <div className="border-t border-zinc-200 bg-white px-6 py-4 sm:hidden dark:border-zinc-800 dark:bg-zinc-950">
-          <div className="flex flex-col gap-4 text-sm">
-            {links.map((l) => (
-              <a
-                key={l.href}
-                href={l.href}
-                onClick={() => setOpen(false)}
-                className="text-zinc-600 transition-colors hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-100"
+        <div className={`border-t px-6 py-4 sm:hidden ${mobileMenuClass}`}>
+          <div className="flex flex-col gap-1">
+            {slides.map((slide, index) => (
+              <button
+                key={slide.id}
+                type="button"
+                onClick={() => {
+                  onNavigate(index);
+                  setOpen(false);
+                }}
+                className={`rounded-lg px-3 py-2 text-left text-sm transition-colors ${
+                  index === activeIndex
+                    ? mobileActiveClass
+                    : mobileInactiveClass
+                }`}
               >
-                {l.label}
-              </a>
+                {slide.label}
+              </button>
             ))}
-            <a
-              href="mailto:rzg8qh@virginia.edu"
-              className="text-zinc-600 transition-colors hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-100"
-            >
-              Contact
-            </a>
           </div>
         </div>
       )}
