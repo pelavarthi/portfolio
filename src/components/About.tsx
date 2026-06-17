@@ -55,6 +55,118 @@ export default function About({ onNavigate }: { onNavigate: (id: string) => void
         </div>
       </div>
 
+      {/* Experience Section */}
+      <div className="mb-24">
+        <h3 className="mb-8 text-sm font-bold uppercase tracking-[0.3em] text-stone-400">
+          Experience
+        </h3>
+        <div className="grid gap-12 lg:grid-cols-2">
+          {/* Education Column */}
+          <div className="space-y-8">
+            <div className="flex items-center gap-3">
+              <span className="text-2xl">🎓</span>
+              <h4 className="text-xl font-bold text-stone-900">Education</h4>
+            </div>
+            <div className="grid gap-4">
+              <div className="rounded-xl border border-stone-200 bg-stone-50/50 p-6 transition-all hover:bg-stone-50">
+                <div className="flex items-start gap-4">
+                  <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-lg border border-stone-100 bg-white p-2">
+                    <img src="https://brand.virginia.edu/sites/uva_brand/files/2023-07/73_UVALogo_800x800.jpg" alt="UVA" className="h-full w-full object-contain" />
+                  </div>
+                  <div className="flex-1">
+                    <div className="flex flex-col justify-between sm:flex-row sm:items-start gap-2 mb-1">
+                      <h5 className="font-bold text-stone-900">University of Virginia</h5>
+                      <span className="text-sm font-medium text-stone-400 italic whitespace-nowrap shrink-0">2024 — 2027</span>
+                    </div>
+                    <p className="text-stone-600">B.S. Computer Science</p>
+                  </div>
+                </div>
+              </div>
+              <div className="rounded-xl border border-stone-200 bg-stone-50/50 p-6 transition-all hover:bg-stone-50">
+                <div className="flex items-start gap-4">
+                  <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-lg border border-stone-100 bg-white p-2">
+                    <img src="https://upload.wikimedia.org/wikipedia/en/b/b4/Tjlogo.png" alt="TJHSST" className="h-full w-full object-contain" />
+                  </div>
+                  <div className="flex-1">
+                    <div className="flex flex-col justify-between sm:flex-row sm:items-start gap-2 mb-1">
+                      <h5 className="font-bold text-stone-900">Thomas Jefferson High School for Science and Technology</h5>
+                      <span className="text-sm font-medium text-stone-400 italic whitespace-nowrap shrink-0">2020 — 2024</span>
+                    </div>
+                    <p className="text-stone-600">High School Diploma</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Work Column */}
+          <div className="space-y-8">
+            <div className="flex items-center gap-3">
+              <span className="text-2xl">💼</span>
+              <h4 className="text-xl font-bold text-stone-900">Work</h4>
+            </div>
+            <div className="grid gap-4">
+              <div className="rounded-xl border border-stone-200 bg-stone-50/50 p-6 transition-all hover:bg-stone-50">
+                <div className="flex items-start gap-4">
+                  <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-lg border border-stone-100 bg-white p-2">
+                    <img src="https://appexchange.salesforce.com/partners/servlet/servlet.FileDownload?file=00P4V000012BTLRUA4" alt="Cvent" className="h-full w-full object-contain" />
+                  </div>
+                  <div className="flex-1">
+                    <div className="flex flex-col justify-between sm:flex-row sm:items-start gap-2 mb-1">
+                      <h5 className="font-bold text-stone-900">Cvent</h5>
+                      <span className="text-sm font-medium text-stone-400 italic whitespace-nowrap shrink-0">Jun 2026 — Aug 2026</span>
+                    </div>
+                    <p className="text-stone-600">Software Engineer Intern</p>
+                  </div>
+                </div>
+              </div>
+              <div className="rounded-xl border border-stone-200 bg-stone-50/50 p-6 transition-all hover:bg-stone-50">
+                <div className="flex items-start gap-4">
+                  <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-lg border border-stone-100 bg-white p-2 text-xl">
+                    <img src="https://media.licdn.com/dms/image/v2/D4E0BAQE64gZyO30dbg/company-logo_200_200/company-logo_200_200/0/1722981804518/amprecover_logo?e=1783555200&v=beta&t=MgWbaCgbRmkdyT3m7m0vLGZgsST3idzePBaCdBvj5LQ" alt="AMP Health" className="h-full w-full object-contain" />
+                  </div>
+                  <div className="flex-1">
+                    <div className="flex flex-col justify-between sm:flex-row sm:items-start gap-2 mb-1">
+                      <h5 className="font-bold text-stone-900">AMP Health</h5>
+                      <span className="text-sm font-medium text-stone-400 italic whitespace-nowrap shrink-0">Jun 2025 — Apr 2026</span>
+                    </div>
+                    <p className="text-stone-600">Software Engineer Intern</p>
+                  </div>
+                </div>
+              </div>
+              <div className="rounded-xl border border-stone-200 bg-stone-50/50 p-6 transition-all hover:bg-stone-50">
+                <div className="flex items-start gap-4">
+                  <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-lg border border-stone-100 bg-white p-2">
+                    <img src="https://www.cyberark.com/wp-content/uploads/2014/06/guidepoint-security-logo.jpeg" alt="Guidepoint Security" className="h-full w-full object-contain" />
+                  </div>
+                  <div className="flex-1">
+                    <div className="flex flex-col justify-between sm:flex-row sm:items-start gap-2 mb-1">
+                      <h5 className="font-bold text-stone-900">Guidepoint Security</h5>
+                      <span className="text-sm font-medium text-stone-400 italic whitespace-nowrap shrink-0">Sep 2025 — Dec 2025</span>
+                    </div>
+                    <p className="text-stone-600">Cybersecurity Engineer Intern</p>
+                  </div>
+                </div>
+              </div>
+              <div className="rounded-xl border border-stone-200 bg-stone-50/50 p-6 transition-all hover:bg-stone-50">
+                <div className="flex items-start gap-4">
+                  <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-lg border border-stone-100 bg-white p-2 text-xl">
+                    <img src="https://avatars.githubusercontent.com/u/36056630?s=200&v=4" alt="Obscurity Labs" className="h-full w-full object-contain" />
+                  </div>
+                  <div className="flex-1">
+                    <div className="flex flex-col justify-between sm:flex-row sm:items-start gap-2 mb-1">
+                      <h5 className="font-bold text-stone-900">Obscurity Labs</h5>
+                      <span className="text-sm font-medium text-stone-400 italic whitespace-nowrap shrink-0">Jun 2023 — Aug 2023</span>
+                    </div>
+                    <p className="text-stone-600">Software Engineer Intern</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
       {/* Technical Skills Section */}
       <div className="mb-24">
         <h3 className="mb-12 text-sm font-bold uppercase tracking-[0.3em] text-stone-400">
