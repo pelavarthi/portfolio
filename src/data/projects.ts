@@ -10,6 +10,13 @@ export interface Project {
 
 export const projects: Project[] = [
   {
+    title: "ML Inference Server",
+    description:
+      "ML inference server in Python + Rust: FastAPI serving with dynamic batching, streaming predictions, an async job queue, Rust PyO3 preprocessing, model versioning with A/B tests, prediction caching, quantization, latency percentiles, token-bucket rate limiting, and Docker deployment, with a demo client and a measured benchmark report.",
+    tags: ["Python", "Rust", "FastAPI", "PyO3", "ML Serving", "Docker"],
+    githubUrl: "https://github.com/pelavarthi/ml-inference-server",
+  },
+  {
     title: "Distributed Key-Value Store",
     description:
       "Distributed key-value store in Go: in-memory KV with TTL, write-ahead log with crash recovery, leader election, majority-commit log replication, failover with follower catch-up, and sharding over a consistent hash ring, served over HTTP and gRPC.",
