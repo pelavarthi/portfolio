@@ -10,6 +10,13 @@ export interface Project {
 
 export const projects: Project[] = [
   {
+    title: "Distributed Key-Value Store",
+    description:
+      "Distributed key-value store in Go: in-memory KV with TTL, write-ahead log with crash recovery, leader election, majority-commit log replication, failover with follower catch-up, and sharding over a consistent hash ring, served over HTTP and gRPC.",
+    tags: ["Go", "Distributed Systems", "gRPC", "Replication", "Consensus"],
+    githubUrl: "https://github.com/pelavarthi/distributed-kv-go",
+  },
+  {
     title: "CIO Clearinghouse",
     description:
       "Full-stack club discovery platform for UVA student organizations with authenticated profiles, searchable club listings, membership tracking, favorites, direct messaging, and role-based admin approval workflows.",
