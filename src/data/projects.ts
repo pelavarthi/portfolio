@@ -10,6 +10,13 @@ export interface Project {
 
 export const projects: Project[] = [
   {
+    title: "Collaborative Editor",
+    description:
+      "Real-time collaborative text editor in Rust + TypeScript: operational transformation core, WebSocket rooms with ordered broadcast, live cursors and presence, undo and redo that compose with OT, rich text with bold, italic and links, documents list with sharing links and server-enforced read-only access, snapshot + op-log persistence, offline mode with conflict resolution, and a chaos test with lag and dropped messages.",
+    tags: ["Rust", "TypeScript", "WebSocket", "Operational Transformation", "Real-Time"],
+    githubUrl: "https://github.com/pelavarthi/collaborative-editor",
+  },
+  {
     title: "ML Inference Server",
     description:
       "ML inference server in Python + Rust: FastAPI serving with dynamic batching, streaming predictions, an async job queue, Rust PyO3 preprocessing, model versioning with A/B tests, prediction caching, quantization, latency percentiles, token-bucket rate limiting, and Docker deployment, with a demo client and a measured benchmark report.",
