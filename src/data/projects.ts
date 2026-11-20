@@ -10,6 +10,13 @@ export interface Project {
 
 export const projects: Project[] = [
   {
+    title: "RAG from Scratch",
+    description:
+      "Retrieval-augmented generation in Python + Go, built from scratch: document ingestion with sentence, recursive, and semantic chunking plus dedup, a pluggable embedding interface with a hashing baseline, in-memory vector search with cosine similarity, hybrid BM25 + vector search fused by reciprocal rank, MMR reranking, cited answer generation with verified citations, a golden-Q&A eval harness, incremental indexing with a file watcher, and a Go retrieval API server with a from-scratch HNSW index, query caching, rate limiting, and API keys, plus benchmarks and a tuning sweep.",
+    tags: ["Python", "Go", "RAG", "Vector Search", "HNSW", "Embeddings"],
+    githubUrl: "https://github.com/pelavarthi/rag-from-scratch",
+  },
+  {
     title: "Collaborative Editor",
     description:
       "Real-time collaborative text editor in Rust + TypeScript: operational transformation core, WebSocket rooms with ordered broadcast, live cursors and presence, undo and redo that compose with OT, rich text with bold, italic and links, documents list with sharing links and server-enforced read-only access, snapshot + op-log persistence, offline mode with conflict resolution, and a chaos test with lag and dropped messages.",
